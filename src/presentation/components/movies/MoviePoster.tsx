@@ -18,9 +18,9 @@ const MoviePoster = ({
   return (
     <Pressable
       style={({pressed}) => ({
-        marginHorizontal: 10,
+        marginHorizontal: 4,
         paddingBottom: 20,
-        paddingHorizontal: 10,
+        paddingHorizontal: 7,
         width,
         height,
         opacity: pressed ? 0.9 : 1,
@@ -44,8 +44,6 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 1,
-    width: 300,
-    height: 400,
     borderRadius: 18,
     shadowColor: '#333',
     shadowOffset: {
