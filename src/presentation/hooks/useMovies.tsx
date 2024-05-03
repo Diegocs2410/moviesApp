@@ -7,7 +7,7 @@ import {
   moviesTopRatedUseCase,
   moviesUpcomingUseCase,
 } from '../../core/use-cases';
-
+let popularPageNumber = 1;
 export const useMovies = () => {
   const [nowPlaying, setNowPlaying] = useState<Movie[]>([]);
   const [upComingMovies, setUpComingMovies] = useState<Movie[]>([]);
@@ -44,5 +44,12 @@ export const useMovies = () => {
     topRatedMovies,
     popularMovies,
     isLoading,
+    popularNextPage: async () => {
+      popularPageNumber++;
+      const popularMovies = await moviesPopularUseCase(movieDBFetcher, {
+        page: popularPageNumber,
+      });
+      setPopularMovies(prev => [...prev, ...popularMovies]);
+    },
   };
 };

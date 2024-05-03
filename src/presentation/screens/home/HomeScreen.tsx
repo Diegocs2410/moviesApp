@@ -7,8 +7,14 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import HorizontalCarousel from '../../components/movies/HorizontalCarousel';
 
 export const HomeScreen = () => {
-  const {isLoading, nowPlaying, popularMovies, topRatedMovies, upComingMovies} =
-    useMovies();
+  const {
+    isLoading,
+    nowPlaying,
+    popularMovies,
+    topRatedMovies,
+    upComingMovies,
+    popularNextPage,
+  } = useMovies();
   const {top} = useSafeAreaInsets();
 
   if (isLoading) {
@@ -26,7 +32,11 @@ export const HomeScreen = () => {
           <PosterCarousel movies={nowPlaying} />
 
           {/* populares */}
-          <HorizontalCarousel movies={popularMovies} title="Populares" />
+          <HorizontalCarousel
+            movies={popularMovies}
+            title="Populares"
+            loadNextPage={popularNextPage}
+          />
           {/* Top Rated */}
           <HorizontalCarousel movies={topRatedMovies} title="Top Rated" />
           {/* Up coming  */}
