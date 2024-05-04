@@ -6,6 +6,7 @@ import {useMovie} from '../../hooks/useMovie';
 import Header from '../../components/movie/Header';
 import Details from '../../components/movie/Details';
 import {ScrollView} from 'react-native-gesture-handler';
+import FullLoaderScreen from '../../components/loaders/FullLoaderScreen';
 
 interface PropsI extends StackScreenProps<RootStackParams, 'Details'> {}
 
@@ -20,11 +21,7 @@ export const DetailsScreen = (props: PropsI) => {
   const {isLoading, movie, castCredits} = useMovie(movieId);
 
   if (isLoading) {
-    return (
-      <View>
-        <Text>Loading</Text>
-      </View>
-    );
+    return <FullLoaderScreen />;
   }
 
   return (
