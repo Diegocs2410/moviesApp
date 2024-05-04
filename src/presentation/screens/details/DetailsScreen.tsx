@@ -4,6 +4,8 @@ import {Text, View} from 'react-native';
 import {RootStackParams} from '../../navigation/Navigation';
 import {useMovie} from '../../hooks/useMovie';
 import Header from '../../components/movie/Header';
+import Details from '../../components/movie/Details';
+import {ScrollView} from 'react-native-gesture-handler';
 
 interface PropsI extends StackScreenProps<RootStackParams, 'Details'> {}
 
@@ -15,7 +17,7 @@ export const DetailsScreen = (props: PropsI) => {
   } = props;
   // const {movieId} = useRoute().params; // Otra manera
 
-  const {isLoading, movie} = useMovie(movieId);
+  const {isLoading, movie, castCredits} = useMovie(movieId);
 
   if (isLoading) {
     return (
@@ -24,11 +26,11 @@ export const DetailsScreen = (props: PropsI) => {
       </View>
     );
   }
-  console.log('🚀 ~ DetailsScreen ~ movie:', movie);
 
   return (
-    <View>
+    <ScrollView>
       <Header movie={movie!} />
-    </View>
+      <Details movie={movie!} cast={castCredits} />
+    </ScrollView>
   );
 };
