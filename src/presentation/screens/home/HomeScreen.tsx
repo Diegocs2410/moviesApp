@@ -1,11 +1,10 @@
-import {Text, View} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import {View} from 'react-native';
+import {GestureHandlerRootView, ScrollView} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import FullLoaderScreen from '../../components/loaders/FullLoaderScreen';
+import HorizontalCarousel from '../../components/movies/HorizontalCarousel';
 import PosterCarousel from '../../components/movies/PosterCarousel';
 import {useMovies} from '../../hooks/useMovies';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import HorizontalCarousel from '../../components/movies/HorizontalCarousel';
-import FullLoaderScreen from '../../components/loaders/FullLoaderScreen';
 
 export const HomeScreen = () => {
   const {

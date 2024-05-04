@@ -1,12 +1,11 @@
 // import {useRoute} from '@react-navigation/native';
 import {StackScreenProps} from '@react-navigation/stack';
-import {Text, View} from 'react-native';
-import {RootStackParams} from '../../navigation/Navigation';
-import {useMovie} from '../../hooks/useMovie';
-import Header from '../../components/movie/Header';
-import Details from '../../components/movie/Details';
 import {ScrollView} from 'react-native-gesture-handler';
 import FullLoaderScreen from '../../components/loaders/FullLoaderScreen';
+import Details from '../../components/movie/Details';
+import Header from '../../components/movie/Header';
+import {useMovie} from '../../hooks/useMovie';
+import {RootStackParams} from '../../navigation/Navigation';
 
 interface PropsI extends StackScreenProps<RootStackParams, 'Details'> {}
 
